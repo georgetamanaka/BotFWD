@@ -40,7 +40,7 @@ def help(bot, update):
     update.message.reply_text('Sem ajuda malandro!')
     bot.send_message(chat_id=update.message.chat_id, 
                      text="Quer ajudar a desenvolver o bot?\n"
-                          "https://github.com/rogerscristo/BotFWD")
+                          "https://goo.gl/x3jDri")
 
 
 def random(bot, update):
