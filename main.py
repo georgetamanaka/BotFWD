@@ -44,12 +44,13 @@ def help(bot, update):
 
 
 def random(bot, update):
-# update.message.reply_text('Chat ID: %s' % update.message.chat_id)
-# bot.send_message(update.message.chat_id,
-# text="Message ID: %s" % update.message.message_id)
-    bot.forwardMessage(update.message.chat_id, '@ofwdnovo', 
-                       randint(3, 65))
-    
+    messageID = randint(0, 150)
+    try:
+        bot.forwardMessage(update.message.chat_id, '@ofwdnovo', messageID) 
+        print("Success => message_id %d" % messageID)
+    except:
+        print("Error => message_id %d does not exist" % messageID)
+        random(bot, update)
 def error(bot, update, error):
     logger.warn('Update "%s" caused error "%s"' % (update, error))
 
