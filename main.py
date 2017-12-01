@@ -9,7 +9,7 @@ bot.
 """
 
 from random import randint
-from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters)
+from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, Job)
 import logging
 
 # Enable logging
@@ -22,6 +22,8 @@ logger = logging.getLogger(__name__)
 # Define a few command handlers. These usually take the two arguments bot and
 # update. Error handlers also receive the raised TelegramError object in error.
 def start(bot, update):
+    bot.send_message(chat_id=update.message.chat_id, 
+                     text="**VOLTEI REBANHO DE FILHOS DA PUTA**\n")
     update.message.reply_text('Olá! Eu sou o BotFwd e existo unicamente para'
                               ' causar o desconforto nas pessoas!')
     bot.send_message(chat_id=update.message.chat_id, 
@@ -39,13 +41,23 @@ def help(bot, update):
 
 
 def random(bot, update):
-    messageID = randint(0, 150)
+    # update.message.reply_text('Em manutenção :(')
+    messageID = randint(6, 150)
     try:
-        bot.forwardMessage(update.message.chat_id, '@ofwdnovo', messageID) 
+        # bot.forwardMessage(update.message.chat_id, '@ofwdnovo', messageID)
+        # -- Linha de debug para verificar se o fwd está funcionando
+        bot.forwardMessage(update.message.chat_id, '@botFwdTeste', messageID)
         print("Success => message_id %d" % messageID)
     except:
         print("Error => message_id %d does not exist" % messageID)
         random(bot, update)
+
+def debug(bot, update):
+
+    print("Chat id %d" % update.message.chat_id) 
+    print("Message id %d" % update.message.message_id) 
+    bot.forwardMessage(update.message.chat_id, "@botFwdTeste", 10)
+
 def error(bot, update, error):
     logger.warn('Update "%s" caused error "%s"' % (update, error))
 
@@ -61,6 +73,7 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("random", random))
+    dp.add_handler(CommandHandler("debug", debug))
 
     # log all errors
     dp.add_error_handler(error)
