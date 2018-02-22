@@ -1,6 +1,6 @@
 # BotFWD
 
-Bot developed to randomly forward messages from one channel to the current chat. Currently in 0.1.0 version
+Bot developed to randomly forward messages from one channel to the current chat. Currently in 0.5.0 version
 
 [![Python: 3.6](https://img.shields.io/badge/Python-3.6-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
