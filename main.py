@@ -272,7 +272,7 @@ def main():
     dp.add_handler(CommandHandler("palavra", word))
     dp.add_handler(CommandHandler("aplicacaonumafrase", aplicacaonumafrase))
     dp.add_handler(CommandHandler("frase", aplicacaonumafrase))
-    dp.add_handler(CommandHandler("debug", debug))
+    #dp.add_handler(CommandHandler("debug", debug))
 
     # log all errors
     dp.add_error_handler(error)
