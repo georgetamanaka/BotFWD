@@ -22,8 +22,6 @@ logger = logging.getLogger(__name__)
 # Define a few command handlers. These usually take the two arguments bot and
 # update. Error handlers also receive the raised TelegramError object in error.
 def start(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, 
-                     text="**VOLTEI REBANHO DE FILHOS DA PUTA**\n")
     update.message.reply_text('Olá! Eu sou o BotFwd e existo unicamente para'
                               ' causar o desconforto nas pessoas!')
     bot.send_message(chat_id=update.message.chat_id, 
@@ -44,8 +42,6 @@ def random(bot, update):
     # update.message.reply_text('Em manutenção :(')
     messageID = rd.randint(6, 175)
     try:
-        # bot.forwardMessage(update.message.chat_id, '@ofwdnovo', messageID)
-        # -- Linha de debug para verificar se o fwd está funcionando
         bot.forwardMessage(update.message.chat_id, '@botFwdTeste', messageID)
         print("Success => message_id %d" % messageID)
     except:
@@ -53,13 +49,11 @@ def random(bot, update):
         random(bot, update)
 
 def debug(bot, update):
-
     print("Chat id %d" % update.message.chat_id) 
     print("Message id %d" % update.message.message_id) 
     for x in range(0, 175):
         try:
             # bot.forwardMessage(update.message.chat_id, '@ofwdnovo', messageID)
-            # -- Linha de debug para verificar se o fwd está funcionando
             bot.forwardMessage(update.message.chat_id, '@botFwdTeste', x)
             print("Success => message_id %d" % x)
         except:
@@ -191,9 +185,8 @@ def lero(bot, update):
             'do retorno esperado a longo prazo.',
             'do investimento em reciclagem técnica.',
             'do remanejamento dos quadros funcionais.' ]
-    leroLero = rd.choice(t0)+rd.choice(t1)+rd.choice(t2)+rd.choice(t3)
-    bot.send_message(chat_id=update.message.chat_id, 
-                     text=leroLero)
+    leroLero = rd.choice(t0) + rd.choice(t1) + rd.choice(t2) + rd.choice(t3)
+    bot.send_message(chat_id=update.message.chat_id, text=leroLero)
 
 def word(bot, update):
     consonants = 'bcdfghjlmnpqrstvxz'
@@ -242,7 +235,7 @@ def main():
 
     # Start the Bot
     updater.start_polling()
-    print('BOT started')
+    print('==== BOT started ====')
 
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
