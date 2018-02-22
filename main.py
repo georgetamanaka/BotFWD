@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 # BotFWD - A telegram bot to forward random messages from a channel
+
 """
 Usage:
 Press Ctrl-C on the command line or send a signal to the process to stop the
@@ -62,37 +63,37 @@ def debug(bot, update):
 
 def lero(bot, update):
     t0 = [  'Caros amigos, ',
-	'Por outro lado, ',
-	'Assim mesmo, ',
-	'No entanto, não podemos esquecer que ',
-	'Do mesmo modo, ',
-	'A prática cotidiana prova que ',
-	'Nunca é demais lembrar o peso e o significado destes problemas, uma vez que ',
-	'As experiências acumuladas demonstram que ',
-	'Acima de tudo, é fundamental ressaltar que ',
-	'O incentivo ao avanço tecnológico, assim como ',
-	'Não obstante, ',
-	'Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se ',
-	'Pensando mais a longo prazo, ',
-	'O que temos que ter sempre em mente é que ',
-	'Ainda assim, existem dúvidas a respeito de como ',
-	'Gostaria de enfatizar que ',
-	'Todavia, ',
-	'A nível organizacional, ',
-	'O empenho em analisar ',
-	'Percebemos, cada vez mais, que ',
-	'No mundo atual, ',
-	'É importante questionar o quanto ',
-	'Neste sentido, ',
-	'Evidentemente, ',
-	'Por conseguinte, ',
-	'É claro que ',
-	'Podemos já vislumbrar o modo pelo qual ',
-	'Desta maneira, ',
-	'O cuidado em identificar pontos críticos n',
-	'A certificação de metodologias que nos auxiliam a lidar com ' ]
+            'Por outro lado, ',
+            'Assim mesmo, ',
+            'No entanto, não podemos esquecer que ',
+            'Do mesmo modo, ',
+            'A prática cotidiana prova que ',
+            'Nunca é demais lembrar o peso e o significado destes problemas, uma vez que ',
+            'As experiências acumuladas demonstram que ',
+            'Acima de tudo, é fundamental ressaltar que ',
+            'O incentivo ao avanço tecnológico, assim como ',
+            'Não obstante, ',
+            'Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se ',
+            'Pensando mais a longo prazo, ',
+            'O que temos que ter sempre em mente é que ',
+            'Ainda assim, existem dúvidas a respeito de como ',
+            'Gostaria de enfatizar que ',
+            'Todavia, ',
+            'A nível organizacional, ',
+            'O empenho em analisar ',
+            'Percebemos, cada vez mais, que ',
+            'No mundo atual, ',
+            'É importante questionar o quanto ',
+            'Neste sentido, ',
+            'Evidentemente, ',
+            'Por conseguinte, ',
+            'É claro que ',
+            'Podemos já vislumbrar o modo pelo qual ',
+            'Desta maneira, ',
+            'O cuidado em identificar pontos críticos n',
+            'A certificação de metodologias que nos auxiliam a lidar com ' ]
 
-    t1 = [	'a execução dos pontos do programa ',
+    t1 = [  'a execução dos pontos do programa ',
             'a complexidade dos estudos efetuados ',
             'a contínua expansão de nossa atividade ',
             'a estrutura atual da organização ',
@@ -154,7 +155,6 @@ def lero(bot, update):
             'deve passar por modificações independentemente ',
             'afeta positivamente a correta previsão ' ]
 
-
     t3 = [  'das condições financeiras e administrativas exigidas.',
             'das diretrizes de desenvolvimento para o futuro.',
             'do sistema de participação geral.',
@@ -185,14 +185,16 @@ def lero(bot, update):
             'do retorno esperado a longo prazo.',
             'do investimento em reciclagem técnica.',
             'do remanejamento dos quadros funcionais.' ]
+
     leroLero = rd.choice(t0) + rd.choice(t1) + rd.choice(t2) + rd.choice(t3)
     bot.send_message(chat_id=update.message.chat_id, text=leroLero)
 
-def word(bot, update):
+def wordGenerate(bot, update):
     consonants = 'bcdfghjlmnpqrstvxz'
     vowels = 'aeiou'
     syllables = rd.randint(2, 10)
     result = ''
+
     for i in range(syllables):
         consonant = rd.choice(consonants)
         this_vowels = vowels
@@ -204,13 +206,53 @@ def word(bot, update):
             result = result[:-2] + 'm' + result[-2:]
         if i > 0 and result[-2] in 'cglrst' and rd.randint(0, 5) == 0:
             result = result[:-2] + 'n' + result[-2:]
-    bot.send_message(chat_id=update.message.chat_id, 
-                     text=result)
-    
+
+    return result
+
+def word(bot, update):
+    result = wordGenerate(bot, update)
+    bot.send_message(chat_id=update.message.chat_id, text=result)
+
+def aplicacaonumafrase(bot, update):
+    word = wordGenerate(bot, update)
+
+    t0 = [  'Meu livro preferido é aquele entitulado \"Quem mexeu no meu {word}?\"',
+            'Já tentou misturar vodka com {word}?',
+            '{word} está precisando de um herói!',
+            'Queria que tivesse {word} todo dia no bandeco;',
+            'Então você curte um {word}, né?',
+            'Daria tudo por um {word} agora.',
+            'Último jogo produzido pelo FoG: \"As aventuras de {word}.',
+            'Quem não curte tomar água com {word} nem fala comigo.',
+            'É um país da {word}!',
+            'Só não deixe se after por um simples {word}.',
+            'Os carros são como as lanchas, e as motos são como um {word}.',
+            'Rosas são vermelhas, violetas são azuis. Se eu soubesse rimar, {word}.',
+            'Aqui só tem conteúdo bom, padrão {word} de qualidade.',
+            'Mal posso esperar pra chegar o dia de {word}.',
+            'Queria ser um pássaro, mas um pássaro não posso ser. Só me sobra ser um {word} mesmo.',
+            'Que dia lindo. Topa um {word} mais tarde?',
+            'Agora sim eu tô {word}.',
+            'Se não tiver {word} eu nem quero.',
+            'Garçom, me vê um {word} pra viagem?',
+            'Se for uma girafa, vai chamar {word}.',
+            'Lembra daquela música famosa, a \"Dançando com {word}\"?',
+            'Você é tão sensual que me lembra uma {word}.',
+            'Se eu fosse funkeiro, seria o Mc {word}.',
+            'Ando sonhando muito com {word}. Devo ir no médico?',
+            'Ele deu uma {word} na barata dela!',
+            'Imagina que louco ter um {word} em casa?',
+            'Já teve aula de {word}?',
+            'Isso tem gosto de {word}.',
+            'Aquele filme de mágica, \"Harry Potter e o {word} de fogo\", sabe?',
+            'O nome do meu filho vai ser {word}, acho lindo.' ]
+
+    r = rd.randint(0, len(t0)-1)
+    result = t0[r].format(word=word)
+    bot.send_message(chat_id=update.message.chat_id, text=result)
 
 def error(bot, update, error):
     logger.warn('Update "%s" caused error "%s"' % (update, error))
-
 
 def main():
     # Create the EventHandler and pass it your bot's token.
@@ -228,6 +270,8 @@ def main():
     dp.add_handler(CommandHandler("lerolero", lero))
     dp.add_handler(CommandHandler("word", word))
     dp.add_handler(CommandHandler("palavra", word))
+    dp.add_handler(CommandHandler("aplicacaonumafrase", aplicacaonumafrase))
+    dp.add_handler(CommandHandler("frase", aplicacaonumafrase))
     dp.add_handler(CommandHandler("debug", debug))
 
     # log all errors
@@ -241,7 +285,6 @@ def main():
     # SIGTERM or SIGABRT. This should be used most of the time, since
     # start_polling() is non-blocking and will stop the bot gracefully.
     updater.idle()
-
 
 if __name__ == '__main__':
     main()
