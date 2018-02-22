@@ -50,16 +50,19 @@ def random(bot, update):
         random(bot, update)
 
 def debug(bot, update):
-    print("Chat id %d" % update.message.chat_id) 
-    print("Message id %d" % update.message.message_id) 
-    for x in range(0, 175):
-        try:
-            # bot.forwardMessage(update.message.chat_id, '@ofwdnovo', messageID)
-            bot.forwardMessage(update.message.chat_id, '@botFwdTeste', x)
-            print("Success => message_id %d" % x)
-        except:
-            print("Error => message_id %d does not exist" % x)
-            continue
+    bot.send_message(chat_id=update.message.chat_id, 
+                     text="Toschi, para de tentar fazer merda de novo")
+
+   # print("Chat id %d" % update.message.chat_id) 
+   # print("Message id %d" % update.message.message_id) 
+   # for x in range(0, 175):
+   #     try:
+   #         # bot.forwardMessage(update.message.chat_id, '@ofwdnovo', messageID)
+   #         bot.forwardMessage(update.message.chat_id, '@botFwdTeste', x)
+   #         print("Success => message_id %d" % x)
+   #     except:
+   #         print("Error => message_id %d does not exist" % x)
+   #         continue
 
 def lero(bot, update):
     t0 = [  'Caros amigos, ',
@@ -272,7 +275,7 @@ def main():
     dp.add_handler(CommandHandler("palavra", word))
     dp.add_handler(CommandHandler("aplicacaonumafrase", aplicacaonumafrase))
     dp.add_handler(CommandHandler("frase", aplicacaonumafrase))
-    #dp.add_handler(CommandHandler("debug", debug))
+    dp.add_handler(CommandHandler("debug", debug))
 
     # log all errors
     dp.add_error_handler(error)
