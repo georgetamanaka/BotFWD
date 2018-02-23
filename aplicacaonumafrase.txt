@@ -1,10 +1,10 @@
 Meu livro preferido é aquele entitulado "Quem mexeu no meu {word}?"
 Já tentou misturar vodka com {word}?
 {word} está precisando de um herói!
-Queria que tivesse {word} todo dia no bandeco;
+Queria que tivesse {word} todo dia no bandeco
 Então você curte um {word}, né?
 Daria tudo por um {word} agora.
-Último jogo produzido pelo FoG: "As aventuras de {word}.
+Último jogo produzido pelo FoG: "As aventuras de {word}."
 Quem não curte tomar água com {word} nem fala comigo.
 É um país da {word}!
 Só não deixe se after por um simples {word}.

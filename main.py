@@ -219,39 +219,20 @@ def word(bot, update):
 def aplicacaonumafrase(bot, update):
     word = wordGenerate(bot, update)
 
-    t0 = [  'Meu livro preferido é aquele entitulado \"Quem mexeu no meu {word}?\"',
-            'Já tentou misturar vodka com {word}?',
-            '{word} está precisando de um herói!',
-            'Queria que tivesse {word} todo dia no bandeco;',
-            'Então você curte um {word}, né?',
-            'Daria tudo por um {word} agora.',
-            'Último jogo produzido pelo FoG: \"As aventuras de {word}.',
-            'Quem não curte tomar água com {word} nem fala comigo.',
-            'É um país da {word}!',
-            'Só não deixe se after por um simples {word}.',
-            'Os carros são como as lanchas, e as motos são como um {word}.',
-            'Rosas são vermelhas, violetas são azuis. Se eu soubesse rimar, {word}.',
-            'Aqui só tem conteúdo bom, padrão {word} de qualidade.',
-            'Mal posso esperar pra chegar o dia de {word}.',
-            'Queria ser um pássaro, mas um pássaro não posso ser. Só me sobra ser um {word} mesmo.',
-            'Que dia lindo. Topa um {word} mais tarde?',
-            'Agora sim eu tô {word}.',
-            'Se não tiver {word} eu nem quero.',
-            'Garçom, me vê um {word} pra viagem?',
-            'Se for uma girafa, vai chamar {word}.',
-            'Lembra daquela música famosa, a \"Dançando com {word}\"?',
-            'Você é tão sensual que me lembra uma {word}.',
-            'Se eu fosse funkeiro, seria o Mc {word}.',
-            'Ando sonhando muito com {word}. Devo ir no médico?',
-            'Ele deu uma {word} na barata dela!',
-            'Imagina que louco ter um {word} em casa?',
-            'Já teve aula de {word}?',
-            'Isso tem gosto de {word}.',
-            'Aquele filme de mágica, \"Harry Potter e o {word} de fogo\", sabe?',
-            'O nome do meu filho vai ser {word}, acho lindo.' ]
+    with open('aplicacaonumafrase.txt') as f:
+        frases = [l.rstrip('\n').lower() for l in f]
 
-    r = rd.randint(0, len(t0)-1)
-    result = t0[r].format(word=word)
+    rFrase = rd.randint(0, len(frases)-1)
+    result = frases[rFrase].format(word=word)
+    bot.send_message(chat_id=update.message.chat_id, text=result)
+
+def filme(bot, update):
+    with open('filme.txt') as f:
+        frases = [l.rstrip('\n').lower() for l in f]
+
+    rFrase = rd.randint(0, len(frases)-1)
+    rPalavra = rd.randint(0, len(palavras)-1)
+    result = frases[rFrase].format(word=palavras[rPalavra])
     bot.send_message(chat_id=update.message.chat_id, text=result)
 
 def error(bot, update, error):
