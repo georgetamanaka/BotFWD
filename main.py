@@ -231,7 +231,7 @@ def filme(bot, update):
         frases = [l.rstrip('\n').lower() for l in f]
 
     result = rd.choice(frases).format(word=rd.choice(palavras))
-	result = result.replace('ânuss', 'ânus') # caso de borda
+    result = result.replace('ânuss', 'ânus') # caso de borda
 
     bot.send_message(chat_id=update.message.chat_id, text=result)
 
