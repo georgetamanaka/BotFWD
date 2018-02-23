@@ -23,21 +23,19 @@ logger = logging.getLogger(__name__)
 # Define a few command handlers. These usually take the two arguments bot and
 # update. Error handlers also receive the raised TelegramError object in error.
 def start(bot, update):
-    update.message.reply_text('Olá! Eu sou o BotFwd e existo unicamente para'
+    update.message.reply_text('Olá! Eu sou o BotFWD e existo unicamente para'
                               ' causar o desconforto nas pessoas!')
     bot.send_message(chat_id=update.message.chat_id, 
                      text="Meus comandos:\n"
                           "Iniciar o bot: /start\n"
                           "Mensagem aleatória: /random\n"
                           "Ajuda: /help")
-    
 
 def help(bot, update):
     update.message.reply_text('Sem ajuda malandro!')
     bot.send_message(chat_id=update.message.chat_id, 
                      text="Quer ajudar a desenvolver o bot?\n"
                           "https://goo.gl/x3jDri")
-
 
 def random(bot, update):
     # update.message.reply_text('Em manutenção :(')
@@ -51,7 +49,7 @@ def random(bot, update):
 
 def debug(bot, update):
     bot.send_message(chat_id=update.message.chat_id, 
-                     text="Toschi, para de tentar fazer merda de novo")
+                     text="Toschi, para de tentar fazer merda de novo.")
 
    # print("Chat id %d" % update.message.chat_id) 
    # print("Message id %d" % update.message.message_id) 
@@ -220,21 +218,21 @@ def aplicacaonumafrase(bot, update):
     word = wordGenerate(bot, update)
 
     with open('aplicacaonumafrase.txt') as f:
-        frases = [l.rstrip('\n').lower() for l in f]
+        frases = [l.rstrip('\n') for l in f]
 
-    rFrase = rd.randint(0, len(frases)-1)
-    result = frases[rFrase].format(word=word)
+    result = rd.choice(frases).format(word=word)
+    
     bot.send_message(chat_id=update.message.chat_id, text=result)
 
 def filme(bot, update):
+    palavras = ['cu', 'pinto', 'anus', 'pipi', 'temer', 'caralho']
+
     with open('filme.txt') as f:
         frases = [l.rstrip('\n').lower() for l in f]
 
-    palavras = ['cu', 'pinto', 'anus', 'pipi', 'temer', 'caralho']
+    result = rd.choice(frases).format(word=rd.choice(palavras))
+	result = result.replace('ânuss', 'ânus') # caso de borda
 
-    rFrase = rd.randint(0, len(frases)-1)
-    rPalavra = rd.randint(0, len(palavras)-1)
-    result = frases[rFrase].format(word=palavras[rPalavra])
     bot.send_message(chat_id=update.message.chat_id, text=result)
 
 def error(bot, update, error):
