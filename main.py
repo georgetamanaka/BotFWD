@@ -50,16 +50,19 @@ def random(bot, update):
         random(bot, update)
 
 def debug(bot, update):
-    print("Chat id %d" % update.message.chat_id) 
-    print("Message id %d" % update.message.message_id) 
-    for x in range(0, 175):
-        try:
-            # bot.forwardMessage(update.message.chat_id, '@ofwdnovo', messageID)
-            bot.forwardMessage(update.message.chat_id, '@botFwdTeste', x)
-            print("Success => message_id %d" % x)
-        except:
-            print("Error => message_id %d does not exist" % x)
-            continue
+    bot.send_message(chat_id=update.message.chat_id, 
+                     text="Toschi, para de tentar fazer merda de novo")
+
+   # print("Chat id %d" % update.message.chat_id) 
+   # print("Message id %d" % update.message.message_id) 
+   # for x in range(0, 175):
+   #     try:
+   #         # bot.forwardMessage(update.message.chat_id, '@ofwdnovo', messageID)
+   #         bot.forwardMessage(update.message.chat_id, '@botFwdTeste', x)
+   #         print("Success => message_id %d" % x)
+   #     except:
+   #         print("Error => message_id %d does not exist" % x)
+   #         continue
 
 def lero(bot, update):
     t0 = [  'Caros amigos, ',
