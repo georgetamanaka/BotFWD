@@ -1,6 +1,6 @@
 senhor dos anéis: a sociedade do {word}
 entrando num {word}
-o espeta{word}lar {word} aranha
+o espetacular {word} aranha
 entrando num {word} maior ainda
 {word} valente
 diário de um {word}
@@ -27,7 +27,7 @@ destino de um {word}
 stardust: o {word} da estrela
 {word} impossível 3
 o poderoso {word}
-à pro{word}ra de um {word}
+à procura de um {word}
 indiana jones e o {word} da aliança
 hora do {word} 3
 brilho eterno de um {word} sem lembranças
@@ -45,7 +45,7 @@ o {word} de 40 anos
 de repente {word}
 se eu fosse {word}
 dois {word}s de francisco
-pro{word}rando {word}
+procurando {word}
 lula: o {word} do brasil
 me chame pelo seu {word} e te chamarei pelo meu
 lula: o filho do {word}
@@ -113,7 +113,7 @@ o estranho {word} de jack
 as crônicas de {word}
 o {word} pede carona
 o {word} que habito
-o {word}rioso {word} de benjamin button
+o curioso {word} de benjamin button
 star wars: a ameaça do {word}
 star wars: o ataque dos {word}s
 star wars: a vingança dos {word}s
