@@ -225,7 +225,7 @@ def aplicacaonumafrase(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text=result)
 
 def filme(bot, update):
-    palavras = ['cu', 'pinto', 'anus', 'pipi', 'temer', 'caralho']
+    palavras = ['cu', 'pinto', 'ânus', 'pipi', 'temer', 'caralho']
 
     with open('filme.txt') as f:
         frases = [l.rstrip('\n').lower() for l in f]
