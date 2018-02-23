@@ -33,7 +33,12 @@ def start(bot, update):
     bot.send_message(chat_id=update.message.chat_id, 
                      text="Meus comandos:\n"
                           "Iniciar o bot: /start\n"
-                          "Mensagem aleatória: /random\n"
+                          "Mensagem aleatória: /random ou /fwd\n"
+                          "Gerador de lero lero: /lero ou /lerolero\n"
+                          "Gerador de palavra: /word ou palavra\n"
+                          "Aplicação de palavra aleatória em frase: /aplicacaonumafrase\n"
+                          "Nome de filme com substituição: /filme\n"
+                          "Música aleatória do spotify: /musica\n"
                           "Ajuda: /help")
 
 def help(bot, update):
