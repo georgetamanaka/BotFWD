@@ -10,8 +10,13 @@ bot.
 """
 
 import random as rd
+import logging, spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, Job)
-import logging
+
+# API Authorization for Spotify
+client_credentials_manager = SpotifyClientCredentials(client_id='d859b7310236443a85af5b2c4dd8f169', client_secret='853138e3fc6b42c3857b3fc03e6ea48d')
+spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -235,6 +240,31 @@ def filme(bot, update):
 
     bot.send_message(chat_id=update.message.chat_id, text=result)
 
+
+def musica(bot, update):
+    chars = 'abcdefghijklmnopqrstuvwxyz0123456789'
+     # Some chars have lower values for the default max offset
+    max_offset_special = {'h': 68587, 'q': 21550, 'w': 65601, 'z': 60495, '0': 57375}
+
+    # Randomly get one of the chars
+    rand_query = chars[rd.randint(0, 35)] 
+
+    # Verify special cases in the max offset
+    if rand_query in max_offset_special:
+        max_offset = max_offset_special.get(rand_query)
+    else:
+        max_offset = 100000
+
+    # Gets the result depending of the previously defined variables
+    # 'results' contains a lot of information about the track selected, such as artist, track name, album, etc
+    results = spotify.search(q = rand_query, limit=1, offset = rd.randint(0, int(max_offset)))
+
+    # Get only the track id from the 'results'
+    for i, t in enumerate(results['tracks']['items']):
+        url = 'https://open.spotify.com/track/' + t['id']
+        bot.send_message(chat_id=update.message.chat_id, text=url)
+
+
 def error(bot, update, error):
     logger.warn('Update "%s" caused error "%s"' % (update, error))
 
@@ -257,6 +287,7 @@ def main():
     dp.add_handler(CommandHandler("aplicacaonumafrase", aplicacaonumafrase))
     dp.add_handler(CommandHandler("frase", aplicacaonumafrase))
     dp.add_handler(CommandHandler("filme", filme))
+    dp.add_handler(CommandHandler("musica", musica))
     dp.add_handler(CommandHandler("debug", debug))
 
     # log all errors
