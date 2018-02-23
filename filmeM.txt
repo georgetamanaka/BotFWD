@@ -30,7 +30,6 @@ o poderoso {word}
 à procura de um {word}
 indiana jones e o {word} da aliança
 hora do {word} 3
-brilho eterno de um {word} sem lembranças
 eu, o {word} e as crianças
 indiana jones e o {word} da perdição
 de volta para o {word}
@@ -58,14 +57,13 @@ a lenda do {word} perdido
 o {word} é a cor mais quente
 eliana e o {word} dos golfinhos
 {word} negro
-branca de neve e os sete {word}
+branca de neve e os sete {word}s
 piratas do caribe: navegando em {word}s misteriosos
 fala {word}, mãe!
 o {word} de wall street
 mestre dos mares: o {word} mais distante do mundo
 american {word}: a primeira vez é inesquecível
 percy jackson: o ladrão de {word}s
-entrando num {word}
 volta ao mundo em 80 {word}s
 entrando num {word} maior ainda com a família!
 vingadores: a era de {word}
@@ -118,12 +116,11 @@ star wars: a ameaça do {word}
 star wars: o ataque dos {word}s
 star wars: a vingança dos {word}s
 um novo {word}
-o {word} contra ataca
-o retorno de {word}
-o despertar do {word}
-os últimos {word}s
+star wars: o {word} contra ataca
+star wars: o retorno do {word}
+star wars: o despertar do {word}
+star wars: os últimos {word}s
 forrest gump: o contador de {word}s
-o resgate do soldado {word}
 crônicas de nárnia: o {word}, a feiticeira e o guarda roupa
 a lista de {word}
 a revolução do {word}
