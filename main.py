@@ -258,6 +258,7 @@ def main():
     dp.add_handler(CommandHandler("palavra", word))
     dp.add_handler(CommandHandler("aplicacaonumafrase", aplicacaonumafrase))
     dp.add_handler(CommandHandler("frase", aplicacaonumafrase))
+    dp.add_handler(CommandHandler("filme", filme))
     dp.add_handler(CommandHandler("debug", debug))
 
     # log all errors
