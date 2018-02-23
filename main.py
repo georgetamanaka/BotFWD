@@ -230,6 +230,8 @@ def filme(bot, update):
     with open('filme.txt') as f:
         frases = [l.rstrip('\n').lower() for l in f]
 
+    palavras = ['cu', 'pinto', 'anus', 'pipi', 'temer', 'caralho']
+
     rFrase = rd.randint(0, len(frases)-1)
     rPalavra = rd.randint(0, len(palavras)-1)
     result = frases[rFrase].format(word=palavras[rPalavra])
