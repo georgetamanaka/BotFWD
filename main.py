@@ -235,8 +235,8 @@ def aplicacaonumafrase(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text=result)
 
 def filme(bot, update):
-    palavrasM = ['cu', 'pinto', 'ânus', 'pipi', 'temer', 'caralho']
-    palavrasF = ['rola', 'vagina', 'dilma']
+    palavrasM = ['Cu', 'Pinto', 'Ânus', 'Pipi', 'Temer', 'Caralho']
+    palavrasF = ['Rola', 'Vagina', 'Dilma', 'Jeba', ]
 
     with open('filmeM.txt') as f:
         frasesM = [l.rstrip('\n') for l in f]
@@ -246,10 +246,12 @@ def filme(bot, update):
     rPalavras = rd.randint(0, len(palavrasM) + len(palavrasF) - 1)
     if rPalavras < len(palavrasM): # M
         result = rd.choice(frasesM).format(word=palavrasM[rPalavras])
-        result = result.replace('ânuss', 'ânus') # caso de borda
+        result = result.replace('Ânuss', 'Ânus') # caso de borda
     else: # F
         rPalavras -= len(palavrasM)
         result = rd.choice(frasesF).format(word=palavrasF[rPalavras])
+
+    result = result.lower()
 
     bot.send_message(chat_id=update.message.chat_id, text=result)
 
